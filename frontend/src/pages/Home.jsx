@@ -6,20 +6,43 @@ import img8 from '../assets/images/img8.jpg';
 import img9 from '../assets/images/img9.jpg';
 import HomeSlideshow from "../components/HomeSlideshow";
 import { Link } from "react-router-dom";
+import Chatbot from "../components/Chatbot";
+import BlurText from "../components/BlurText";
 
 export default function Home() {
   return (
     <main className="bg-[#f8f6f2] min-h-screen">
+      <Chatbot />
   <div className="max-w-full mx-auto flex flex-col items-center justify-center">
         {/* Slideshow */}
         <div className="w-full">
           <HomeSlideshow />
         </div>
         {/* Text container below slideshow */}
-        <div className="w-full flex flex-col items-center justify-center px-8 pt-12">
-          <h2 className="text-[3rem] leading-none font-serif text-[#6e2c1c] font-normal mb-2 text-center">Designing</h2>
-          <span className="text-2xl font-serif text-[#6e2c1c] text-center">&amp; delivering fully finished spaces that are both inspiring and
-          distinctly yours.</span>
+        <div className="w-full flex flex-col md:flex-row items-center justify-between px-8 pt-12">
+          <div className="flex-1 flex flex-col items-start justify-center">
+            <BlurText
+              text="Designing"
+              delay={150}
+              animateBy="words"
+              direction="top"
+              className="text-[3rem] leading-none font-serif text-[#6e2c1c] font-normal mb-2 text-left"
+            />
+            <BlurText
+              text="& delivering fully finished spaces that are both inspiring and distinctly yours."
+              delay={100}
+              animateBy="words"
+              direction="top"
+              className="text-2xl font-serif text-[#6e2c1c] text-left"
+            />
+          </div>
+          <div className="flex-none mt-8 md:mt-0 md:ml-8">
+            <Link to="/services">
+              <button className="bg-[#6e2c1c] text-white font-serif px-8 py-3 rounded-full text-base md:text-lg shadow hover:bg-[#a34c3a] transition-colors duration-200">
+                View More
+              </button>
+            </Link>
+          </div>
         </div>
   </div>
 
